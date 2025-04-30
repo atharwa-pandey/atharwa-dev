@@ -1,0 +1,401 @@
+    /* —— Reset & Base —— */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html, body {
+      width:100%; height:100%;
+      overflow:hidden;
+      perspective:1200px;
+      font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+    }
+    a {
+      color:inherit;
+      text-decoration:none;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    a:after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: currentColor;
+      transition: width 0.3s ease;
+    }
+    a:hover:after {
+      width: 100%;
+    }
+    ul { list-style:disc inside; }
+
+    /* —— Alternating Dark/Light Backgrounds —— */
+    #container > .page:nth-child(odd) {
+      background: linear-gradient(135deg, #111 0%, #222 100%);
+      color: #f1f1f1;
+    }
+    #container > .page:nth-child(even) {
+      background: linear-gradient(135deg, #f5f5f5 0%, #e2e2e2 100%);
+      color: #111;
+    }
+
+    /* —— 3D Cube Setup —— */
+    #container {
+      width:100%; height:100%;
+      position:relative;
+      transform-style:preserve-3d;
+      will-change: transform;
+      transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+    }
+    .page {
+      position:absolute;
+      width:100%; height:100%;
+      top:0; left:0;
+      backface-visibility:hidden;
+      overflow: hidden;
+    }
+
+    /* —— Page Transition Effect —— */
+    .page {
+      opacity: 0.95;
+      box-shadow: 0 0 50px rgba(0,0,0,0.5);
+      transition: opacity 0.3s ease;
+    }
+    .page.active {
+      opacity: 1;
+    }
+
+    /* —— Intro Styling —— */
+    .intro {
+      position:absolute;
+      top:20%; left:10%;
+      width:80%;
+      text-align:center;
+    }
+    .intro-hello {
+      font-size:8vw;
+      font-weight:900;
+      text-transform:uppercase;
+      margin-bottom:1rem;
+      letter-spacing: -0.03em;
+      text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+    }
+    .intro-hello .accent {
+      position:relative;
+      display:inline-block;
+    }
+    .intro-hello .accent::before {
+      content:'';
+      position:absolute;
+      left:0; right:0; bottom:0.1em;
+      height:0.3em;
+      background:#d4af37;
+      z-index:-1;
+      transform: skewX(-15deg);
+    }
+    .intro-tag {
+      font-size:1.2rem;
+      margin-bottom:2rem;
+      opacity:.8;
+      font-weight: 300;
+    }
+    .hero-nav {
+      margin-top:2rem;
+      text-align:center;
+    }
+    .hero-nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .hero-nav li {
+      position: relative;
+      transition: transform 0.3s ease;
+    }
+    .hero-nav li:hover {
+      transform: translateY(-2px);
+    }
+    .hero-nav a {
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+    .hero-nav a:hover {
+      background: rgba(255,255,255,0.1);
+    }
+    .hero-nav a:hover:after {
+      width: 0;
+    }
+
+    /* —— Two‑Block Layout —— */
+    .block {
+      position:absolute;
+      width:42%;
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      padding: 2rem;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(1px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+    .block:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    }
+    .first  { bottom:12%; left:5%; }
+    .second { top:12%; right:5%; }
+
+    /* —— Block Header Styling —— */
+    .block-header { margin-bottom:1.5rem; width:100%; }
+    .block-title {
+      font-size:5vw;
+      font-weight:900;
+      text-transform:lowercase;
+      line-height:1;
+      margin:0;
+      position: relative;
+      display: inline-block;
+    }
+    .block-title:after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 3rem;
+      height: 3px;
+      background: #d4af37;
+    }
+    .block-underline {
+      width:100%; height:1px;
+      background: rgba(127,127,127,0.3);
+      margin:1.5rem 0 1rem;
+    }
+    .block-subtitle {
+      font-size:1.2rem;
+      font-weight:500;
+      margin:0 0 1rem;
+      opacity: 0.8;
+      font-style: italic;
+    }
+    .block-content p,
+    .block-content ul {
+      font-size:1rem;
+      line-height:1.6;
+      margin-bottom:1rem;
+    }
+    .block-content ul {
+      padding-left: 1rem;
+    }
+    .block-content ul li {
+      margin-bottom: 0.5rem;
+    }
+    .block-content ul ul {
+      list-style:square inside;
+      margin-top:.5rem;
+      padding-left: 1.5rem;
+    }
+    .block-content strong {
+      color: #d4af37;
+      font-weight: 600;
+    }
+
+    /* —— Dot Animation —— */
+    .dots {
+      position:absolute; top:0; left:0;
+      width:100%; height:100%;
+      pointer-events:none; z-index:1;
+    }
+    .dot {
+      position:absolute;
+      background:rgba(212,175,55,0.15);
+      border-radius:50%;
+      pointer-events:none;
+      filter: blur(1px);
+      transition: opacity 0.5s ease;
+    }
+
+    /* —— Scroll Indicator —— */
+    .scroll-indicator {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 100;
+      opacity: 0.7;
+      transition: opacity 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 300;
+    }
+    .scroll-indicator span {
+      margin-bottom: 10px;
+    }
+    .scroll-indicator .mouse {
+      width: 30px;
+      height: 50px;
+      border: 2px solid #fff;
+      border-radius: 15px;
+      position: relative;
+    }
+    .scroll-indicator .mouse:after {
+      content: '';
+      position: absolute;
+      top: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      height: 8px;
+      background: #fff;
+      border-radius: 2px;
+      animation: scroll 1.5s infinite;
+    }
+    @keyframes scroll {
+      0% { transform: translate(-50%, 0); opacity: 1; }
+      100% { transform: translate(-50%, 15px); opacity: 0; }
+    }
+
+    /* —— Progress Nav —— */
+    .progress-nav {
+      position: fixed;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .progress-nav .dot-nav {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.3);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .progress-nav .dot-nav.active {
+      background: #d4af37;
+      transform: scale(1.2);
+    }
+    .progress-nav .dot-nav:hover {
+      background: rgba(255,255,255,0.8);
+    }
+
+    /* —— Responsive Adjustments —— */
+    @media (max-width: 1200px) {
+      .block {
+        width: 45%;
+      }
+    }
+    @media (max-width: 992px) {
+      .block {
+        width: 90%;
+        position: relative;
+        margin: 0 auto 2rem;
+        font-size: 6vw;
+      }
+      .first, .second {
+        top: 50%;
+        transform: translateY(-50%);
+        left: 5%;
+        right: auto;
+        bottom: auto;
+      }
+      .first {
+        margin-top: -120px;
+      }
+      .second {
+        margin-top: 120px;
+      }
+    }
+    /* —— Responsive: all pages except #intro stack normally —— */
+@media (max-width: 768px) {
+  /* 1) Restore normal page scrolling */
+  html, body {
+    overflow-y: auto !important;
+    height: auto !important;
+  }
+
+  /* 2) Unwrap pages 2–N from the cube */
+  #container > .page:not(#intro) {
+    position: static !important;
+    transform: none !important;
+    backface-visibility: visible !important;
+    overflow: visible !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: auto !important;
+    padding: 2rem 0;       /* give some breathing room */
+    box-shadow: none !important;
+  }
+
+  /* 3) Make each block flow vertically and wrap */
+  .block {
+    position: static !important;
+    width: 90% !important;
+    max-width: 480px;
+    margin: 1.5rem auto !important;
+    padding: 1rem !important;
+  }
+
+  /* 4) Adjust text so it wraps within the block */
+  .block-content p,
+  .block-content ul {
+    font-size: 16px !important;
+    line-height: 1.5 !important;
+    word-wrap: break-word !important;
+  }
+}
+
+    /* —— Font Loading —— */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap');
+
+@media (max-width: 768px) {
+  html, body {
+    overflow: auto !important;
+    height: auto !important;
+  }
+  #container {
+    transform: none !important;
+    perspective: none !important;
+    overflow: visible !important;
+    height: auto !important;
+    display: block !important;
+  }
+  .page {
+    display: block !important;
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    opacity: 1 !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .block {
+    position: relative !important;
+    width: calc(100% - 2rem) !important;
+    margin: 1rem auto !important;
+    padding: 1rem !important;
+    transform: none !important;
+    box-shadow: none !important;
+    background: none !important;
+  }
+  .progress-nav,
+  .scroll-indicator,
+  .hero-nav {
+    display: none !important;
+  }
+}

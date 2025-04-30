@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Atharwa Pandey</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Scroll Indicator -->
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+    <div class="mouse"></div>
+  </div>
+
+  <!-- Progress Navigation -->
+  <div class="progress-nav">
+    <div class="dot-nav active" data-index="0"></div>
+    <div class="dot-nav" data-index="1"></div>
+    <div class="dot-nav" data-index="2"></div>
+    <div class="dot-nav" data-index="3"></div>
+    <div class="dot-nav" data-index="4"></div>
+  </div>
+
+  <div id="container">
+    <!-- Page 1: Intro -->
+    <div class="page active" id="intro">
+      <div class="dots" id="dots"></div>
+      <div class="intro">
+        <div class="intro-hello">
+          <span>HE</span><br>
+          <span class="accent">LLO.</span>
+        </div>
+        <p class="intro-tag">
+          I'm Atharwa Pandey, a Quantitative Researcher and Financial Engineer based in Ithaca, NY.
+        </p>
+        <nav class="hero-nav">
+          <ul>
+            <li><a href="#about-edu">About / Education</a></li>
+            <li><a href="#exp-papers">Experience / Papers</a></li>
+            <li><a href="#proj-lead">Projects / Leadership</a></li>
+            <li><a href="#skills-contact">Skills / Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Page 2: About + Education -->
+    <div class="page" id="about-edu">
+      <div class="block first">
+        <div class="block-header">
+          <h2 class="block-title">about me</h2>
+          <div class="block-underline"></div>
+          <h3 class="block-subtitle">a quick introduction.</h3>
+        </div>
+        <div class="block-content">
+          <p>I'm Atharwa, a Financial Engineering M.Eng. candidate at Cornell (GPA 4.07), graduating Dec 2025. My research bridges deep learning with quantitative finance to build robust asset‑pricing and algorithmic trading models.</p>
+          <p>Previously, I interned at Amazon—led a global CI/CD pipeline project that cut deployment times from 48 h to 4–5 h. Now at the DEFT Lab, I optimize deep‑learning architectures for corporate decision‑making.</p>
+        </div>
+      </div>
+      <div class="block second">
+        <div class="block-header">
+          <h2 class="block-title">education</h2>
+          <div class="block-underline"></div>
+          <h3 class="block-subtitle">academic background</h3>
+        </div>
+        <div class="block-content">
+          <ul>
+            <li><strong>Cornell University</strong> — M.Eng. Financial Engineering (GPA 4.07/4), expected Dec 2025</li>
+            <li><strong>BITS Pilani</strong> — B.E. Computer Science, Minor in Computational Economics (GPA 7.81/10), May 2024</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Page 3: Experience + Working Papers -->
+    <div class="page" id="exp-papers">
+      <div class="block first">
+        <div class="block-header">
+          <h2 class="block-title">experience</h2>
+          <div class="block-underline"></div>
+          <h3 class="block-subtitle">professional roles</h3>
+        </div>
+        <div class="block-content">
+          <ul>
+            <li><strong>Research Assistant</strong>, DEFT Lab @ Cornell (Apr 2023–Present)
+              <ul>
+                <li>AlphaManager: enhanced deep RL models, boosting R² by 20%.</li>
+                <li>Replicated AQR empirical asset‑pricing frameworks.</li>
+                <li>Optimized model memory by 60% & accelerated training in PyTorch.</li>
+              </ul>
+            </li>
+            <li><strong>Software Developer Intern</strong>, Amazon (Jul–Dec 2023)
+              <ul>
+                <li>Built CI/CD pipeline in TypeScript & Kotlin (deploy 48 h→4–5 h).</li>
+                <li>Implemented automated load tests & rollbacks on AWS.</li>
+                <li>Authored integration tests for 12 microservices.</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="block second">
+        <div class="block-header">
+          <h2 class="block-title">working papers</h2>
+          <div class="block-underline"></div>
+          <h3 class="block-subtitle">research output</h3>
+        </div>
+        <div class="block-content">
+          <ul>
+            <li><strong>A Survey of Classical, Deep, & RL‑Based Time Series Forecasting</strong>
+              <p>Reviewing forecasting methods, data challenges, and proposing a hybrid ensemble approach for robust predictions.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Page 4: Projects + Leadership -->
+    <div class="page" id="proj-lead">
+      <div class="block first">
+        <div class="block-header">
+          <h2 class="block-title">projects</h2>
+          <div class="block-underline"></div>
+          <h3 class="block-subtitle">hands‑on work</h3>
+        </div>
+        <div class="block-content">
+          <ul>
+            <li><strong>Tech Sector Portfolio Optimization</strong> (Fall 2024)
+              <p>Backtested mean‑variance & tangency portfolios (2017–2022). Achieved 15% risk reduction vs. benchmark.</p>
+            </li>
+            <li><strong>Machine Unlearning</strong> (Spring 2024)
+              <p>Benchmarked unlearning vs. retraining in PyTorch—cut retrain time by 70% with minimal accuracy loss.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="block second">
+        <div class="block-header">
+          <h2 class="block-title">leadership</h2>
+          <div class="block-underline"></div>
+          <h3 class="block-subtitle">co‑curricular</h3>
+        </div>
+        <div class="block-content">
+          <ul>
+            <li><strong>Film Making Club</strong>, BITS Pilani (Jul 2022–May 2023)
+              <p>Directed the 50th‑fest after‑movie—led a 26‑member crew and trained newcomers in cinematography & editing.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Page 5: Skills + Contact -->
+    <div class="page" id="skills-contact">
+      <div class="block first">
+        <div class="block-header">
+          <h2 class="block-title">skills & interests</h2>
+          <div class="block-underline"></div>
+          <h3 class="block-subtitle">technical & personal</h3>
+        </div>
+        <div class="block-content">
+          <p><strong>Languages & Libs:</strong> Python, C++, R, Java, TS, SQL, PyTorch, Pandas, NumPy</p>
+          <p><strong>Tools & Data:</strong> AWS, GitHub, Compustat, CRSP, Linux, Excel, LaTeX, RPA</p>
+          <p><strong>Interests:</strong> Deep Learning, Quant Research, Filmmaking, Soccer, Formula 1</p>
+        </div>
+      </div>
+      <div class="block second">
+        <div class="block-header">
+          <h2 class="block-title">contact</h2>
+          <div class="block-underline"></div>
+          <h3 class="block-subtitle">get in touch</h3>
+        </div>
+        <div class="block-content">
+          <ul>
+            <li>Email: <a href="mailto:ap2467@cornell.edu">ap2467@cornell.edu</a></li>
+            <li>Phone: <a href="tel:+16076975722">+1 607 697 5722</a></li>
+            <li><a href="https://linkedin.com/in/atharwa-pandey-359853211" target="_blank">LinkedIn</a></li>
+            <li><a href="https://github.com/atharwa-pandey" target="_blank">GitHub</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"> </script>
+</body>
+</html>
+
+

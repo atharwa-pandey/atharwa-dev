@@ -2,7 +2,8 @@
     * { margin:0; padding:0; box-sizing:border-box; }
     html, body {
       width:100%; height:100%;
-      overflow:hidden;
+        overflow-x: hidden; /* only hide horizontal overflow */
+        overflow-y: auto;   /* allow vertical scrolling + selection */
       perspective:1200px;
       font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
       line-height: 1.6;
@@ -30,12 +31,12 @@
 
     /* —— Alternating Dark/Light Backgrounds —— */
     #container > .page:nth-child(odd) {
-      background: linear-gradient(135deg, #111 0%, #222 100%);
-      color: #f1f1f1;
+      background: linear-gradient(135deg, #111 0%, #222 100%) !important;
+      color: #f1f1f1 !important;
     }
     #container > .page:nth-child(even) {
-      background: linear-gradient(135deg, #f5f5f5 0%, #e2e2e2 100%);
-      color: #111;
+      background: linear-gradient(135deg, #f5f5f5 0%, #e2e2e2 100%) !important;
+      color: #111 !important;
     }
 
     /* —— 3D Cube Setup —— */
@@ -51,7 +52,7 @@
       width:100%; height:100%;
       top:0; left:0;
       backface-visibility:hidden;
-      overflow: hidden;
+      overflow: visible;
     }
 
     /* —— Page Transition Effect —— */
@@ -61,7 +62,8 @@
       transition: opacity 0.3s ease;
     }
     .page.active {
-      opacity: 1;
+        opacity: 1;
+        pointer-events: auto;
     }
 
     /* —— Intro Styling —— */
@@ -139,10 +141,11 @@
       align-items:flex-start;
       padding: 2rem;
       border-radius: 10px;
-      background: rgba(255,255,255,0.05);
+      background: rgba(255,255,254,0.05) !important;
       backdrop-filter: blur(1px);
       box-shadow: 0 8px 32px rgba(0,0,0,0.1);
       transition: all 0.3s ease;
+        z-index: 5;
     }
     .block:hover {
       transform: translateY(-5px);
@@ -398,4 +401,27 @@
   .hero-nav {
     display: none !important;
   }
+}
+/* Blocks inside dark pages (odd-numbered) */
+#container > .page:nth-child(odd) .block {
+  background-color: rgba(30, 30, 30, 0.8) !important;
+  color: #f1f1f1 !important;
+}
+
+/* Blocks inside light pages (even-numbered) */
+#container > .page:nth-child(even) .block {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  color: #111 !important;
+}
+
+/* only pages without .active are “inert” */
+.page:not(.active) {
+  pointer-events: none !important;
+}
+
+/* make sure you can click / hover / select text in the active page */
+.page.active,
+.page.active * {
+  user-select: text !important;
+  -webkit-user-select: text !important;
 }
